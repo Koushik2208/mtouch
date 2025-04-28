@@ -9,17 +9,15 @@ const Pagination = () => {
   const page = searchParams.get("page") ?? "1";
 
   const handleClick = (type: string) => {
-    if (type === "prev" && parseInt(page) > 1) {
+    if (type === "prev" && parseInt(page) > 0) {
       const params = new URLSearchParams(searchParams.toString());
       params.set("page", (parseInt(page) - 1).toString());
 
       router.push(`?${params.toString()}`);
-    } else if (type === "next" && parseInt(page) !== 1) {
+    } else {
       const params = new URLSearchParams(searchParams.toString());
       params.set("page", (parseInt(page) + 1).toString());
       router.push(`?${params.toString()}`);
-    } else if (parseInt(page) === 1 && type === "prev") {
-      return;
     }
   };
   return (
