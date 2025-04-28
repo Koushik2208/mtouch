@@ -4,8 +4,7 @@ import Pagination from "@/components/Pagination";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 const ProductsPage = () => {
   const searchParams = useSearchParams();
@@ -28,10 +27,10 @@ const ProductsPage = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [searchParams, page]);
+  }, [searchParams]);
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <>
       <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-5">
         {products.length > 0 &&
           products.map((product) => (
@@ -58,8 +57,13 @@ const ProductsPage = () => {
           ))}
       </div>
       <Pagination />
-    </Suspense>
+    </>
   );
 };
+const Page = () => {
+  <Suspense fallback={<div>Loading...</div>}>
+    <ProductsPage />
+  </Suspense>;
+};
 
-export default ProductsPage;
+export default Page;
