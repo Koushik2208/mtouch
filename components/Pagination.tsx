@@ -18,7 +18,7 @@ const Pagination = () => {
       const params = new URLSearchParams(searchParams.toString());
       params.set("page", (parseInt(page) + 1).toString());
       router.push(`?${params.toString()}`);
-    } else if (parseInt(page) === 1) {
+    } else if (parseInt(page) === 1 && type === "prev") {
       return;
     }
   };
