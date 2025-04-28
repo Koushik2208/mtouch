@@ -9,7 +9,8 @@ const Pagination = () => {
   const page = searchParams.get("page") ?? "1";
 
   const handleClick = (type: string) => {
-    if (type === "prev" && parseInt(page) > 0) {
+    if (page === "1" && type === "prev") return;
+    if (type === "prev" && parseInt(page) > 1) {
       const params = new URLSearchParams(searchParams.toString());
       params.set("page", (parseInt(page) - 1).toString());
 
