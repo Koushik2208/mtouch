@@ -14,10 +14,12 @@ const Pagination = () => {
       params.set("page", (parseInt(page) - 1).toString());
 
       router.push(`?${params.toString()}`);
-    } else {
+    } else if (type === "next" && parseInt(page) !== 1) {
       const params = new URLSearchParams(searchParams.toString());
       params.set("page", (parseInt(page) + 1).toString());
       router.push(`?${params.toString()}`);
+    } else if (parseInt(page) === 1) {
+      return;
     }
   };
   return (
