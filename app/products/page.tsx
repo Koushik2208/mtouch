@@ -61,9 +61,11 @@ const ProductsPage = () => {
   );
 };
 const Page = () => {
-  <Suspense fallback={<div>Loading...</div>}>
-    <ProductsPage />
-  </Suspense>;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsPage />
+    </Suspense>
+  );
 };
 
 export default Page;
