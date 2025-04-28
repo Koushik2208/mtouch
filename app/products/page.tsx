@@ -31,36 +31,34 @@ const ProductsPage = () => {
   }, [searchParams, page]);
 
   return (
-    <>
-      <Suspense fallback={<p>Loading...</p>}>
-        <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-5">
-          {products.length > 0 &&
-            products.map((product) => (
-              <Link
-                href={`products/${product.id}`}
-                key={product.title}
-                className="flex flex-col w-[200px] border rounded-sm gap-5 p-5"
-              >
-                <div>
-                  <div className="h-2/3 flex justify-center items-center">
-                    <Image
-                      src={product.image}
-                      alt="product image"
-                      width={100}
-                      height={100}
-                      objectFit="contain"
-                    />
-                  </div>
-                  <h5 className="line-clamp-2 h-1/3 font-bold">
-                    {product.title}
-                  </h5>
+    <Suspense fallback={<p>Loading...</p>}>
+      <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-5">
+        {products.length > 0 &&
+          products.map((product) => (
+            <Link
+              href={`products/${product.id}`}
+              key={product.title}
+              className="flex flex-col w-[200px] border rounded-sm gap-5 p-5"
+            >
+              <div>
+                <div className="h-2/3 flex justify-center items-center">
+                  <Image
+                    src={product.image}
+                    alt="product image"
+                    width={100}
+                    height={100}
+                    objectFit="contain"
+                  />
                 </div>
-              </Link>
-            ))}
-        </div>
-      </Suspense>
+                <h5 className="line-clamp-2 h-1/3 font-bold">
+                  {product.title}
+                </h5>
+              </div>
+            </Link>
+          ))}
+      </div>
       <Pagination />
-    </>
+    </Suspense>
   );
 };
 
