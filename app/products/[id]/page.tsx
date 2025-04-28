@@ -29,11 +29,10 @@ const ProductDetails = async ({
   const { id } = await params;
   const detail = await fetch(`https://fakestoreapi.com/products/${id}`);
   const product = await detail.json();
-  console.log(product);
   return (
-    <div>
-      <h1>{product.title}</h1>
+    <div className="flex flex-col h-screen justify-center items-center gap-5">
       <Image src={product.image} alt="product image" width={300} height={300} />
+      <h1 className="font-bold text-2xl">{product.title}</h1>
     </div>
   );
 };

@@ -40,16 +40,16 @@ const ProductsPage = () => {
               className="flex flex-col w-[200px] border rounded-sm gap-5 p-5"
             >
               <div>
-                <div className="h-2/3 flex justify-center items-center">
+                <div className="h-[200px] flex justify-center items-center">
                   <Image
                     src={product.image}
                     alt="product image"
                     width={100}
                     height={100}
-                    objectFit="contain"
+                    objectFit="fill"
                   />
                 </div>
-                <h5 className="line-clamp-2 h-1/3 font-bold">
+                <h5 className="line-clamp-2 h-[50px] overflow-hidden font-bold">
                   {product.title}
                 </h5>
               </div>
