@@ -20,9 +20,12 @@
 // }
 
 import Image from "next/image";
-import React from "react";
 
-const ProductDetails = async ({ params }: { params: { id: string } }) => {
+const ProductDetails = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
   const { id } = await params;
   const detail = await fetch(`https://fakestoreapi.com/products/${id}`);
   const product = await detail.json();
