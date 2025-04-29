@@ -31,7 +31,7 @@ const ProductsPage = () => {
 
   return (
     <>
-      <div className="grid md:grid-cols-4 sm:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-4 sm:grid-cols-3 justify-center gap-5">
         {products.length > 0 &&
           products.map((product) => (
             <Link
